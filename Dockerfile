@@ -6,4 +6,4 @@ RUN apt-get update \
 
 EXPOSE 1812/udp 1813/udp
 
-ENTRYPOINT ["/usr/sbin/freeradius"]
+ENTRYPOINT ["/usr/sbin/freeradius","-fl","stdout"]
