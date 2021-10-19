@@ -1,10 +1,13 @@
 FROM ubuntu:20.04
 
 RUN apt-get update \ 
-  && apt-get install -y freeradius-mysql \
+  && apt-get install -y freeradius-mysql wget \
   && rm -rf /var/lib/apt/lists/* 
   
-RUN rm -rf /etc/freeradius/3.0/sites-enabled/inner-tunnel
+RUN rm -rf /etc/freeradius/3.0/
+
+RUN wget https://raw.githubusercontent.com/ricardolan85/vivavox-freeradius-server/main/radiusd.conf
+RUN wget https://raw.githubusercontent.com/ricardolan85/vivavox-freeradius-server/main/users.conf
 
 EXPOSE 1812/udp 1813/udp
 
