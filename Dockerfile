@@ -11,4 +11,4 @@ RUN wget https://raw.githubusercontent.com/ricardolan85/vivavox-freeradius-serve
 
 EXPOSE 1812/udp 1813/udp
 
-ENTRYPOINT ["/usr/sbin/freeradius","-X"]
+ENTRYPOINT ["/usr/sbin/freeradius","-d","/etc/freeradius","-X"]
