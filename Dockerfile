@@ -6,6 +6,11 @@ RUN apt-get update \
   
 RUN rm -rf /etc/freeradius/3.0/sites-enabled/inner-tunnel
 
+RUN rm -rf /etc/freeradius/3.0/mods-enabled/eap \
+ && rm -rf /etc/freeradius/3.0/mods-enabled/cache_eap \
+ && rm -rf /etc/freeradius/3.0/mods-enabled/passwd \
+ && rm -rf /etc/freeradius/3.0/mods-enabled/unix
+
 EXPOSE 1812/udp 1813/udp
 
 ENTRYPOINT ["/usr/sbin/freeradius","-fl","stdout"]
